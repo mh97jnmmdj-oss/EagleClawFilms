@@ -251,21 +251,30 @@
                     </div>
                     <div class="bg-slate-900 border border-slate-800 p-8 md:p-10">
                         <h3 class="text-2xl text-white font-serif mb-8">Send a Message</h3>
-                        <!-- Added action placeholder and method for Formspree -->
-                        <form id="contact-form" action="https://formspree.io/f/YOUR_ENDPOINT_HERE" method="POST" class="space-y-6">
+                        
+                        <!-- Formspree Success and Error states -->
+                        <div data-fs-success class="p-4 bg-green-900/20 border border-green-900/50 text-green-400 text-sm text-center mb-6" style="display: none;">
+                            Message sent successfully. Our team will be in touch shortly.
+                        </div>
+                        <div data-fs-error class="p-4 bg-red-900/20 border border-red-900/50 text-red-400 text-sm text-center mb-6" style="display: none;">
+                            Oops! There was a problem submitting your form.
+                        </div>
+
+                        <!-- Contact Form configured for Formspree SDK -->
+                        <form id="contact-form" class="space-y-6">
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div class="space-y-2">
                                     <label class="text-xs uppercase tracking-widest text-slate-400">Name</label>
-                                    <input name="name" required type="text" class="w-full bg-slate-950 border border-slate-800 text-white px-4 py-3 focus:outline-none focus:border-amber-500 transition-colors" />
+                                    <input name="name" required type="text" data-fs-field class="w-full bg-slate-950 border border-slate-800 text-white px-4 py-3 focus:outline-none focus:border-amber-500 transition-colors" />
                                 </div>
                                 <div class="space-y-2">
                                     <label class="text-xs uppercase tracking-widest text-slate-400">Email</label>
-                                    <input name="email" required type="email" class="w-full bg-slate-950 border border-slate-800 text-white px-4 py-3 focus:outline-none focus:border-amber-500 transition-colors" />
+                                    <input name="email" required type="email" data-fs-field class="w-full bg-slate-950 border border-slate-800 text-white px-4 py-3 focus:outline-none focus:border-amber-500 transition-colors" />
                                 </div>
                             </div>
                             <div class="space-y-2">
                                 <label class="text-xs uppercase tracking-widest text-slate-400">Subject</label>
-                                <select name="subject" class="w-full bg-slate-950 border border-slate-800 text-white px-4 py-3 focus:outline-none focus:border-amber-500 transition-colors appearance-none">
+                                <select name="subject" data-fs-field class="w-full bg-slate-950 border border-slate-800 text-white px-4 py-3 focus:outline-none focus:border-amber-500 transition-colors appearance-none">
                                     <option>General Inquiry</option>
                                     <option>Production Services</option>
                                     <option>Press / Media</option>
@@ -274,14 +283,11 @@
                             </div>
                             <div class="space-y-2">
                                 <label class="text-xs uppercase tracking-widest text-slate-400">Message</label>
-                                <textarea name="message" required rows="5" class="w-full bg-slate-950 border border-slate-800 text-white px-4 py-3 focus:outline-none focus:border-amber-500 transition-colors resize-none"></textarea>
+                                <textarea name="message" required rows="5" data-fs-field class="w-full bg-slate-950 border border-slate-800 text-white px-4 py-3 focus:outline-none focus:border-amber-500 transition-colors resize-none"></textarea>
                             </div>
-                            <button type="submit" class="w-full bg-amber-600 hover:bg-amber-500 text-white py-4 text-sm uppercase tracking-widest transition-colors font-medium">
+                            <button type="submit" data-fs-submit-btn class="w-full bg-amber-600 hover:bg-amber-500 text-white py-4 text-sm uppercase tracking-widest transition-colors font-medium">
                                 Submit Inquiry
                             </button>
-                            <div id="form-status" class="hidden p-4 bg-green-900/20 border border-green-900/50 text-green-400 text-sm text-center transition-colors">
-                                Message sent successfully. Our team will be in touch shortly.
-                            </div>
                         </form>
                     </div>
                 </div>
@@ -301,13 +307,20 @@
                 </div>
                 <p class="text-slate-500 text-sm">© <span id="current-year"></span> Eagle Claw Films. All rights reserved.</p>
             </div>
-            <div class="flex gap-6">
-                <a href="#" class="text-slate-400 hover:text-amber-500 transition-colors uppercase text-xs tracking-widest">Instagram</a>
-                <a href="#" class="text-slate-400 hover:text-amber-500 transition-colors uppercase text-xs tracking-widest">Vimeo</a>
-                <a href="#" class="text-slate-400 hover:text-amber-500 transition-colors uppercase text-xs tracking-widest">IMDb</a>
+            <div class="flex flex-wrap justify-center gap-6">
+                <!-- Added Placeholders for Social Media Links -->
+                <a href="https://www.instagram.com/eagleclawfilms?igsh=NnZxdzZoanM5Nncz&utm_source=qr" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-amber-500 transition-colors uppercase text-xs tracking-widest">Instagram</a>
+                <a href="https://youtube.com/@cinematographybypatrick?si=1u2Mb0UtcxQ_YlaU" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-amber-500 transition-colors uppercase text-xs tracking-widest">YouTube</a>
+                <a href="https://www.tiktok.com/@eagleclawfilms?_r=1&_t=ZT-95s4uEer5Bt" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-amber-500 transition-colors uppercase text-xs tracking-widest">TikTok</a>
+                <a href="https://www.imdb.com/name/nm17085879/?ref_=ext_shr_lnk" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-amber-500 transition-colors uppercase text-xs tracking-widest">IMDb</a>
             </div>
         </div>
     </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scroll-to-top-btn" class="fixed z-50 bottom-8 right-8 bg-amber-500 text-slate-950 p-3 rounded-full shadow-xl transition-all duration-300 opacity-0 pointer-events-none translate-y-10 hover:bg-amber-400 focus:outline-none" aria-label="Scroll to top">
+        <i data-lucide="arrow-up" class="w-6 h-6"></i>
+    </button>
 
     <!-- JavaScript Data and Logic -->
     <script>
@@ -396,7 +409,7 @@
             // Hero Background
             const heroBgContainer = document.getElementById('hero-bg-container');
             if(SITE_IMAGES.heroBackground) {
-                heroBgContainer.innerHTML = `<img src="${SITE_IMAGES.heroBackground}" alt="Hero" class="w-full h-full object-cover opacity-60" />`;
+                heroBgContainer.innerHTML = `<img src="${SITE_IMAGES.heroBackground}" alt="Hero" class="absolute inset-0 w-full h-full object-cover opacity-60" />`;
             } else {
                 heroBgContainer.innerHTML = '';
             }
@@ -512,6 +525,7 @@
             const sections = document.querySelectorAll('section');
             const navLinks = document.querySelectorAll('.nav-link');
             const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+            const scrollToTopBtn = document.getElementById('scroll-to-top-btn');
 
             window.addEventListener('scroll', () => {
                 // Background change
@@ -549,6 +563,20 @@
                         link.classList.add('text-amber-500', 'bg-slate-900/50');
                     }
                 });
+
+                // Scroll to Top button visibility
+                if (window.scrollY > 400) {
+                    scrollToTopBtn.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-10');
+                    scrollToTopBtn.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
+                } else {
+                    scrollToTopBtn.classList.add('opacity-0', 'pointer-events-none', 'translate-y-10');
+                    scrollToTopBtn.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
+                }
+            });
+
+            // Scroll to Top click event
+            scrollToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             });
 
             // Mobile Menu Toggle
@@ -571,48 +599,6 @@
                     iconClose.classList.add('hidden');
                 });
             });
-
-            // Contact form background submission
-            document.getElementById('contact-form').addEventListener('submit', async (e) => {
-                e.preventDefault();
-                const form = e.target;
-                const statusDiv = document.getElementById('form-status');
-                const submitBtn = form.querySelector('button[type="submit"]');
-                
-                // Prevent duplicate submissions
-                submitBtn.disabled = true;
-                submitBtn.textContent = 'Sending...';
-
-                try {
-                    const response = await fetch(form.action, {
-                        method: form.method,
-                        body: new FormData(form),
-                        headers: {
-                            'Accept': 'application/json'
-                        }
-                    });
-
-                    if (response.ok) {
-                        statusDiv.classList.remove('hidden');
-                        statusDiv.className = 'p-4 bg-green-900/20 border border-green-900/50 text-green-400 text-sm text-center';
-                        statusDiv.textContent = 'Message sent successfully. Our team will be in touch shortly.';
-                        form.reset();
-                    } else {
-                        throw new Error('Network response was not ok.');
-                    }
-                } catch (error) {
-                    statusDiv.classList.remove('hidden');
-                    statusDiv.className = 'p-4 bg-red-900/20 border border-red-900/50 text-red-400 text-sm text-center';
-                    statusDiv.textContent = 'Oops! There was a problem submitting your form. Please make sure you added the endpoint URL.';
-                }
-
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Submit Inquiry';
-
-                setTimeout(() => {
-                    statusDiv.classList.add('hidden');
-                }, 5000);
-            });
         }
 
         // Initialize Everything
@@ -628,5 +614,12 @@
             lucide.createIcons();
         });
     </script>
+    
+    <!-- Formspree Initialization -->
+    <script>
+        window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+        formspree('initForm', { formElement: '#contact-form', formId: 'mlgavwkb' });
+    </script>
+    <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 </body>
 </html>
