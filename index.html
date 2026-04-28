@@ -114,9 +114,9 @@
                     </p>
                     
                     <div class="flex flex-col items-center">
-                        <a href="#filmography" class="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-500 text-white px-8 py-4 text-sm tracking-widest uppercase transition-colors duration-300 shadow-xl shadow-amber-900/20">
+                        <a href="#featured-work" class="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-500 text-white px-8 py-4 text-sm tracking-widest uppercase transition-colors duration-300 shadow-xl shadow-amber-900/20">
                             <i data-lucide="play-circle" class="w-5 h-5"></i>
-                            View Our Work
+                            View Featured Work
                         </a>
                         
                         <!-- Bouncing Down Arrow -->
@@ -127,11 +127,11 @@
                 </div>
             </div>
 
-            <!-- Recent Work Section -->
-            <div class="py-24 bg-slate-950 border-b border-slate-900">
+            <!-- Featured Work Section -->
+            <div id="featured-work" class="py-24 bg-slate-950 border-b border-slate-900 scroll-mt-20">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="flex justify-between items-end mb-12 border-b border-slate-800 pb-6">
-                        <h2 class="text-3xl md:text-4xl font-serif text-white">Recent Work</h2>
+                        <h2 class="text-3xl md:text-4xl font-serif text-white">Featured Work</h2>
                         <a href="#filmography" class="hidden md:flex items-center gap-2 text-amber-500 hover:text-amber-400 uppercase tracking-widest text-sm transition-colors">
                             Full Filmography <i data-lucide="arrow-right" class="w-4 h-4"></i>
                         </a>
@@ -371,6 +371,19 @@
 
     </button>
 
+    <!-- Film Modal -->
+    <div id="film-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 bg-slate-950/90 backdrop-blur-sm opacity-0 transition-opacity duration-300" onclick="if(event.target === this) closeModal()">
+        <div id="film-modal-content" class="bg-slate-900 border border-slate-800 max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl transform scale-95 transition-transform duration-300 relative flex flex-col md:flex-row">
+            <!-- Close Button -->
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-amber-500 bg-slate-950/50 rounded-full p-2 focus:outline-none z-20 backdrop-blur-md">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            <div class="flex flex-col md:flex-row w-full" id="film-modal-body">
+                <!-- Injected via JS -->
+            </div>
+        </div>
+    </div>
+
     <!-- JavaScript Data and Logic -->
     <script>
         // --- MOCK DATA ---
@@ -382,21 +395,44 @@
 
         const RECENT_WORK = [
             {
-                id: 1, title: "If Not Us", director: "Patrick Civitelli", year: "Coming 2026", category: "Short Documentary", awards: [], 
+                id: 1, title: "If Not Us", director: "Patrick Civitelli", year: "Coming Late 2026", category: "Documentary", awards: [], 
                 description: "If Not Us is a compelling documentary centered on the student-led movement to end school shootings. Highlighting the voices of those who have experienced these tragedies firsthand—alongside a generation that refuses to accept the status quo—the film explores the powerful intersection of grief and activism. It offers an inspiring look at how young survivors and passionate advocates are finding their courage, confronting systemic inaction, and bravely answering the call for change.",
-                poster: "INU Poster.PNG", still: "If Not Us PP.png"
+                poster: "INU Poster.PNG", still: "If Not Us PP.png",
+                videoLink: "https://ifnotusdoc.org/",
+                linkText: "Visit Website",
+                linkIcon: "globe"
             },
             {
                 id: 2, title: "Ascending Beyond Shadows", director: "Patrick Civitelli", year: "2025", category: "Short Documentary", 
-                awards: ["Official Selection - Reading Film Fest", "Best Cinematography - Art is Alive Film Festival", "Best Documentary - SCSU Film Fest", "Best Documentary - Yule Film Fest"],
+                awards: [
+                    "Official Selection - Reading Film Fest", 
+                    "Best Cinematography - Art is Alive Film Festival", 
+                    "Best Documentary - SCSU Film Fest", 
+                    "Best Documentary - Yule Film Fest",
+                    "New York International Film Awards™ - NYIFA Honorable Mention for Best Documentary Short",
+                    "New York International Film Awards™ - NYIFA Finalist for Best Student Film",
+                    "Reale Film Festival - Monthly Awards for Best Documentary Honorable Mention",
+                    "Brookfield Film Festival Official Selection",
+                    "Los Angeles Lift-Off Film Festival Official Selection"
+                ],
                 description: "\"Ascending Beyond Shadows\" is a documentary about rock climbing. This documentary follows Tristin as he uses rock climbing to deal with hardships in his life in a positive way through this hobby.",
-                poster: "ABS P.PNG", still: "Awards banner.png"
+                poster: "ABS P.PNG", still: "Awards banner.png",
+                videoLink: "https://youtu.be/hFXTzeEEL3I?si=S7LYja90Tc-5sJCP" // Input your YouTube/Vimeo link here
             },
             {
                 id: 3, title: "Roma WWF Supertar to Teacher", director: "Patrick Civitelli & Ethan Chaplinski", year: "2024", category: "Short Documentary",
-                awards: ["Official Selection - Bridgeport Film Fest", "Best Young Directors Honorable Mention - Reale Film Festival"],
+                awards: [
+                    "Official Selection - Bridgeport Film Fest", 
+                    "Best Young Directors Honorable Mention - Reale Film Festival",
+                    "New York International Film Awards™ - NYIFA Best Student Film Honorable Mention",
+                    "New York International Film Awards™ - NYIFA Best Documentary Short Finalist",
+                    "Reale Film Festival - Monthly Awards Honorable Mention for Best Debut Film",
+                    "RED MOVIE AWARDS Official Selection",
+                    "Niagara Canada International Film Festival Official Selection"
+                ],
                 description: "\"Roma WWF Star to Teacher: A Mini Documentary\" is the story of Paul Roma, a former WWF wrestler. The documentary shows how he turned his success in the ring into an opportunity to mentor students. He shares personal stories about wrestling and how that led him to teach students. Not only does he coach his student to be the best they can be he also teaches valuable life lessons.",
-                poster: "ROMA P.PNG", still: "Youtube Tumbnail Roma.png"
+                poster: "ROMA P.PNG", still: "Youtube Tumbnail Roma.png",
+                videoLink: "https://youtu.be/aeteyREiOv0?si=EFZpHxXjUAxAUR43" // Input your YouTube/Vimeo link here
             }
         ];
 
@@ -405,17 +441,20 @@
             {
                 id: 4, title: "Retrospection", director: "Patrick Civitelli", year: "2025", category: "Short Experimental Documentary", awards: [],
                 description: "Director Patrick Civitelli's first experimental documentary, Retrospection (2025), follows Civitelli as he travels through time, looking back at his childhood. Through different sources, Civitelli recounts memories that were unforgettable",
-                poster: "RP.jpeg", still: "Retrospection.png"
+                poster: "RP.jpeg", still: "Retrospection.png",
+                videoLink: "" // Input your YouTube/Vimeo link here
             },
             {
                 id: 5, title: "Paranormal Pursuits", director: "Patrick Civitelli", year: "2025", category: "Short Documentary", awards: [],
                 description: "\"Paranormal Pursuits\" is about a haunted library in Middlefield CT. My team and I spent the night to find out if it was truly haunted....",
-                poster: "Para.png", still: "Para.png"
+                poster: "Para.png", still: "Para.png",
+                videoLink: "" // Input your YouTube/Vimeo link here
             },
             {
                 id: 6, title: "Powdered Lies", director: "Patrick Civitelli", year: "2024", category: "Short Film", awards: [],
                 description: "This is the story of Mike, a man struggling with a dangerous addiction to cocaine. As his life spirals out of control, his relationship with his brother, Chris, begins to fracture. Despite Chris’s efforts to help, Mike lies to his face, denying the depth of his problem. But with each passing day, Mike edges closer to facing the devastating, lifelong consequences of his actions—consequences that may ultimately cost him the love and trust of those who care about him most.",
-                poster: "PL.jpg", still: "PL.jpg"
+                poster: "PL.jpg", still: "PL.jpg",
+                videoLink: "" // Input your YouTube/Vimeo link here
             }
         ];
 
@@ -467,11 +506,19 @@
         function renderRecentWork() {
             const container = document.getElementById('recent-work-grid');
             container.innerHTML = RECENT_WORK.map(film => `
-                <div class="group cursor-pointer">
+                <div class="group cursor-pointer" onclick="openModal(${film.id})">
                     <div class="relative aspect-[2/3] overflow-hidden mb-6 bg-slate-900 flex flex-col items-center justify-center border border-slate-800 group-hover:border-amber-500/50 transition-all duration-500 shadow-lg">
-                        ${film.poster ? `<img src="${film.poster}" alt="${film.title}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90 group-hover:opacity-100" />` : `<i data-lucide="film" class="w-10 h-10 text-slate-700 mb-3 relative z-10"></i><span class="text-slate-500 font-serif text-center px-4 uppercase tracking-widest text-xs relative z-10">Poster Placeholder<br/><br/><span class="text-sm font-bold text-slate-400">${film.title}</span></span>`}
-                        ${(film.awards && film.awards.length > 0 && film.awards[0] !== "") ? `<div class="absolute top-4 left-4 bg-amber-500 text-slate-950 text-xs font-bold uppercase tracking-widest px-3 py-1 flex items-center gap-1 z-20 shadow-md"><i data-lucide="star" class="w-3 h-3 fill-current"></i> Award Winner</div>` : ''}
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent opacity-40 group-hover:opacity-0 transition-opacity"></div>
+                        ${film.poster ? `<img src="${film.poster}" alt="${film.title}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90 group-hover:opacity-30" />` : `<i data-lucide="film" class="w-10 h-10 text-slate-700 mb-3 relative z-10 group-hover:opacity-30 transition-opacity"></i><span class="text-slate-500 font-serif text-center px-4 uppercase tracking-widest text-xs relative z-10 group-hover:opacity-30 transition-opacity">Poster Placeholder<br/><br/><span class="text-sm font-bold text-slate-400">${film.title}</span></span>`}
+                        ${(film.awards && film.awards.length > 0 && film.awards[0] !== "") ? `<div class="absolute top-4 left-4 bg-amber-500 text-slate-950 text-xs font-bold uppercase tracking-widest px-3 py-1 flex items-center gap-1 z-20 shadow-md transition-opacity group-hover:opacity-30"><i data-lucide="star" class="w-3 h-3 fill-current"></i> Award Winner</div>` : ''}
+                        
+                        <!-- Hover Overlay with "View Details" text -->
+                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-30">
+                            <span class="text-amber-500 uppercase tracking-widest text-sm font-bold flex items-center gap-2 bg-slate-950/80 px-6 py-3 rounded-full border border-amber-500/30">
+                                View Synopsis <i data-lucide="info" class="w-4 h-4"></i>
+                            </span>
+                        </div>
+                        
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent opacity-40 group-hover:opacity-80 transition-opacity z-20"></div>
                     </div>
                     <div class="flex justify-between items-start">
                         <div>
@@ -562,6 +609,84 @@
                     ${item.link ? `<a href="${item.link}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm text-white hover:text-amber-500 uppercase tracking-widest transition-colors mt-auto">Read Article <i data-lucide="external-link" class="w-4 h-4"></i></a>` : ''}
                 </article>
             `).join('');
+        }
+
+        // --- MODAL LOGIC ---
+
+        function openModal(id) {
+            const film = FILMOGRAPHY.find(f => f.id === id);
+            if(!film) return;
+            
+            const modal = document.getElementById('film-modal');
+            const modalBody = document.getElementById('film-modal-body');
+            
+            const btnText = film.linkText || "Watch Film";
+            const btnIcon = film.linkIcon || "play-circle";
+
+            const watchLinkHtml = film.videoLink 
+                ? `<a href="${film.videoLink}" target="_blank" rel="noopener noreferrer" class="mt-8 inline-flex items-center justify-center gap-2 bg-amber-600 hover:bg-amber-500 text-white px-6 py-4 text-sm tracking-widest uppercase transition-colors duration-300 self-start shadow-lg">
+                     <i data-lucide="${btnIcon}" class="w-5 h-5"></i> ${btnText}
+                   </a>` 
+                : `<p class="mt-8 text-slate-500 text-sm italic">Film link coming soon.</p>`;
+
+            let modalAwardsHtml = '';
+            if(film.awards && film.awards.length > 0 && film.awards[0] !== "") {
+                modalAwardsHtml = `<div class="flex flex-wrap gap-2 mb-6">` + 
+                    film.awards.map(award => `<span class="inline-flex items-center gap-1.5 px-3 py-1 bg-amber-500/10 border border-amber-500/30 text-xs text-amber-500 rounded-full"><i data-lucide="award" class="w-3 h-3"></i>${award}</span>`).join('') + 
+                    `</div>`;
+            }
+
+            const posterHtml = film.poster 
+                ? `<img src="${film.poster}" alt="${film.title}" class="w-full h-full object-cover md:min-h-[500px]" />` 
+                : `<div class="w-full h-full min-h-[300px] md:min-h-[500px] flex items-center justify-center bg-slate-900 border-r border-slate-800"><span class="text-slate-500 uppercase tracking-widest text-xs">No Poster</span></div>`;
+
+            modalBody.innerHTML = `
+                <div class="w-full md:w-2/5 flex-shrink-0 relative">
+                    ${posterHtml}
+                </div>
+                <div class="w-full md:w-3/5 p-8 md:p-12 flex flex-col justify-center">
+                    <p class="text-amber-500 text-sm uppercase tracking-widest mb-2">${film.category} • ${film.year}</p>
+                    <h3 class="text-3xl md:text-5xl text-white font-serif mb-4 leading-tight">${film.title}</h3>
+                    <p class="text-slate-400 text-lg mb-6 font-light border-b border-slate-800 pb-6">Directed by ${film.director}</p>
+                    
+                    ${modalAwardsHtml}
+                    
+                    <div class="text-slate-300 font-light leading-relaxed space-y-4 max-h-[30vh] overflow-y-auto pr-2">
+                        <p>${film.description}</p>
+                    </div>
+                    
+                    ${watchLinkHtml}
+                </div>
+            `;
+            
+            lucide.createIcons();
+
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            
+            // Trigger animation
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                document.getElementById('film-modal-content').classList.remove('scale-95');
+                document.getElementById('film-modal-content').classList.add('scale-100');
+            }, 10);
+            
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('film-modal');
+            
+            modal.classList.add('opacity-0');
+            document.getElementById('film-modal-content').classList.remove('scale-100');
+            document.getElementById('film-modal-content').classList.add('scale-95');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }, 300);
+            
+            document.body.style.overflow = '';
         }
 
         // --- INTERACTIVITY LOGIC ---
