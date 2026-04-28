@@ -14,7 +14,7 @@
     <!-- Social Sharing Data (Open Graph for Facebook, LinkedIn, iMessage, etc.) -->
     <meta property="og:title" content="Eagle Claw Films">
     <meta property="og:description" content="An independent production company dedicated to visionary storytelling, uncompromising artistry, and unforgettable experiences.">
-    <meta property="og:image" content="Logo.jpeg"> <!-- Updated to Logo.jpeg -->
+    <meta property="og:image" content="Logo.jpeg">
     <meta property="og:url" content="https://www.eagleclawfilms.com">
     <meta property="og:type" content="website">
 
@@ -22,7 +22,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Eagle Claw Films">
     <meta name="twitter:description" content="An independent production company dedicated to visionary storytelling, uncompromising artistry, and unforgettable experiences.">
-    <meta name="twitter:image" content="Logo.jpeg"> <!-- Updated to Logo.jpeg -->
+    <meta name="twitter:image" content="Logo.jpeg">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -37,7 +37,7 @@
         .fade-in {
             animation: fadeIn 0.8s ease-out forwards;
         }
-        /* Hide scrollbar for cleaner look if desired, though optional */
+        /* Hide scrollbar for cleaner look */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #020617; } /* slate-950 */
         ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; } /* slate-700 */
@@ -51,7 +51,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between">
                 <!-- Logo Area -->
-                <a href="#home" class="flex items-center gap-3 cursor-pointer group">
+                <a href="#home" class="flex items-center gap-3 cursor-pointer group" onclick="scrollToSection(event, 'home')">
                     <div id="nav-logo-container" class="w-12 h-12 rounded-full object-cover shadow-lg transform group-hover:scale-105 transition-transform border-2 border-amber-500 bg-slate-900 flex items-center justify-center overflow-hidden">
                         <!-- Filled by JS based on SITE_IMAGES -->
                     </div>
@@ -62,12 +62,12 @@
 
                 <!-- Desktop Nav -->
                 <div class="hidden md:flex space-x-8" id="desktop-nav">
-                    <a href="#home" class="nav-link text-sm tracking-widest uppercase transition-colors text-amber-500 font-semibold">Home</a>
-                    <a href="#about" class="nav-link text-sm tracking-widest uppercase transition-colors text-slate-400 hover:text-white">About</a>
-                    <a href="#filmography" class="nav-link text-sm tracking-widest uppercase transition-colors text-slate-400 hover:text-white">Filmography</a>
-                    <a href="#appearances" class="nav-link text-sm tracking-widest uppercase transition-colors text-slate-400 hover:text-white">Appearances</a>
-                    <a href="#press" class="nav-link text-sm tracking-widest uppercase transition-colors text-slate-400 hover:text-white">Press</a>
-                    <a href="#contact" class="nav-link text-sm tracking-widest uppercase transition-colors text-slate-400 hover:text-white">Contact</a>
+                    <a href="#home" class="nav-link text-sm tracking-widest uppercase transition-colors text-amber-500 font-semibold" onclick="scrollToSection(event, 'home')">Home</a>
+                    <a href="#about" class="nav-link text-sm tracking-widest uppercase transition-colors text-slate-400 hover:text-white" onclick="scrollToSection(event, 'about')">About</a>
+                    <a href="#filmography" class="nav-link text-sm tracking-widest uppercase transition-colors text-slate-400 hover:text-white" onclick="scrollToSection(event, 'filmography')">Filmography</a>
+                    <a href="#appearances" class="nav-link text-sm tracking-widest uppercase transition-colors text-slate-400 hover:text-white" onclick="scrollToSection(event, 'appearances')">Appearances</a>
+                    <a href="#press" class="nav-link text-sm tracking-widest uppercase transition-colors text-slate-400 hover:text-white" onclick="scrollToSection(event, 'press')">Press</a>
+                    <a href="#contact" class="nav-link text-sm tracking-widest uppercase transition-colors text-slate-400 hover:text-white" onclick="scrollToSection(event, 'contact')">Contact</a>
                 </div>
 
                 <!-- Mobile Menu Button -->
@@ -83,12 +83,12 @@
         <!-- Mobile Nav -->
         <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-slate-950 border-b border-slate-800 shadow-2xl">
             <div class="px-4 pt-2 pb-6 space-y-2">
-                <a href="#home" class="mobile-nav-link block w-full text-left px-4 py-3 text-sm tracking-widest uppercase text-amber-500 bg-slate-900/50">Home</a>
-                <a href="#about" class="mobile-nav-link block w-full text-left px-4 py-3 text-sm tracking-widest uppercase text-slate-400 hover:text-white hover:bg-slate-900/30">About</a>
-                <a href="#filmography" class="mobile-nav-link block w-full text-left px-4 py-3 text-sm tracking-widest uppercase text-slate-400 hover:text-white hover:bg-slate-900/30">Filmography</a>
-                <a href="#appearances" class="mobile-nav-link block w-full text-left px-4 py-3 text-sm tracking-widest uppercase text-slate-400 hover:text-white hover:bg-slate-900/30">Appearances</a>
-                <a href="#press" class="mobile-nav-link block w-full text-left px-4 py-3 text-sm tracking-widest uppercase text-slate-400 hover:text-white hover:bg-slate-900/30">Press</a>
-                <a href="#contact" class="mobile-nav-link block w-full text-left px-4 py-3 text-sm tracking-widest uppercase text-slate-400 hover:text-white hover:bg-slate-900/30">Contact</a>
+                <a href="#home" class="mobile-nav-link block w-full text-left px-4 py-3 text-sm tracking-widest uppercase text-amber-500 bg-slate-900/50" onclick="scrollToSection(event, 'home')">Home</a>
+                <a href="#about" class="mobile-nav-link block w-full text-left px-4 py-3 text-sm tracking-widest uppercase text-slate-400 hover:text-white hover:bg-slate-900/30" onclick="scrollToSection(event, 'about')">About</a>
+                <a href="#filmography" class="mobile-nav-link block w-full text-left px-4 py-3 text-sm tracking-widest uppercase text-slate-400 hover:text-white hover:bg-slate-900/30" onclick="scrollToSection(event, 'filmography')">Filmography</a>
+                <a href="#appearances" class="mobile-nav-link block w-full text-left px-4 py-3 text-sm tracking-widest uppercase text-slate-400 hover:text-white hover:bg-slate-900/30" onclick="scrollToSection(event, 'appearances')">Appearances</a>
+                <a href="#press" class="mobile-nav-link block w-full text-left px-4 py-3 text-sm tracking-widest uppercase text-slate-400 hover:text-white hover:bg-slate-900/30" onclick="scrollToSection(event, 'press')">Press</a>
+                <a href="#contact" class="mobile-nav-link block w-full text-left px-4 py-3 text-sm tracking-widest uppercase text-slate-400 hover:text-white hover:bg-slate-900/30" onclick="scrollToSection(event, 'contact')">Contact</a>
             </div>
         </div>
     </nav>
@@ -114,15 +114,15 @@
                     </p>
                     
                     <div class="flex flex-col items-center">
-                        <a href="#featured-work" class="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-500 text-white px-8 py-4 text-sm tracking-widest uppercase transition-colors duration-300 shadow-xl shadow-amber-900/20">
+                        <button onclick="document.getElementById('featured-work').scrollIntoView({ behavior: 'smooth' })" class="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-500 text-white px-8 py-4 text-sm tracking-widest uppercase transition-colors duration-300 shadow-xl shadow-amber-900/20">
                             <i data-lucide="play-circle" class="w-5 h-5"></i>
                             View Featured Work
-                        </a>
+                        </button>
                         
                         <!-- Bouncing Down Arrow -->
-                        <a href="#about" class="mt-20 animate-bounce text-slate-400 hover:text-amber-500 transition-colors cursor-pointer" aria-label="Scroll down">
+                        <button onclick="document.getElementById('about').scrollIntoView({ behavior: 'smooth' })" class="mt-20 animate-bounce text-slate-400 hover:text-amber-500 transition-colors cursor-pointer focus:outline-none" aria-label="Scroll down">
                             <i data-lucide="arrow-down" class="w-10 h-10"></i>
-                        </a>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -132,9 +132,9 @@
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="flex justify-between items-end mb-12 border-b border-slate-800 pb-6">
                         <h2 class="text-3xl md:text-4xl font-serif text-white">Featured Work</h2>
-                        <a href="#filmography" class="hidden md:flex items-center gap-2 text-amber-500 hover:text-amber-400 uppercase tracking-widest text-sm transition-colors">
+                        <button onclick="document.getElementById('filmography').scrollIntoView({ behavior: 'smooth' })" class="hidden md:flex items-center gap-2 text-amber-500 hover:text-amber-400 uppercase tracking-widest text-sm transition-colors">
                             Full Filmography <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                        </a>
+                        </button>
                     </div>
                     <div id="recent-work-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         <!-- Injected via JS -->
@@ -339,7 +339,7 @@
                 <p class="text-slate-500 text-sm">© <span id="current-year"></span> Eagle Claw Films. All rights reserved.</p>
             </div>
             <div class="flex flex-wrap justify-center gap-6">
-                <!-- Added Placeholders for Social Media Links -->
+                <!-- Custom Social Media Links -->
                 <a href="https://www.instagram.com/eagleclawfilms?igsh=NnZxdzZoanM5Nncz&utm_source=qr" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-amber-500 transition-colors uppercase text-xs tracking-widest">Instagram</a>
                 <a href="https://youtube.com/@cinematographybypatrick?si=1u2Mb0UtcxQ_YlaU" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-amber-500 transition-colors uppercase text-xs tracking-widest">YouTube</a>
                 <a href="https://www.tiktok.com/@eagleclawfilms?_r=1&_t=ZT-95s4uEer5Bt" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-amber-500 transition-colors uppercase text-xs tracking-widest">TikTok</a>
@@ -349,7 +349,7 @@
     </footer>
 
     <!-- Unique Eagle & Film Theme Scroll to Top -->
-    <button id="scroll-to-top-btn" class="fixed z-50 bottom-8 right-8 w-12 h-16 bg-slate-950 border-l-[4px] border-r-[4px] border-dashed border-amber-500 flex flex-col items-center justify-center shadow-[0_0_15px_rgba(245,158,11,0.2)] transition-all duration-500 opacity-0 pointer-events-none translate-y-10 hover:bg-amber-500 hover:border-slate-950 hover:shadow-[0_0_25px_rgba(245,158,11,0.5)] group focus:outline-none overflow-hidden" aria-label="Scroll to top">
+    <button id="scroll-to-top-btn" class="fixed z-50 bottom-8 right-8 w-12 h-16 bg-slate-950 border-l-[4px] border-r-[4px] border-dashed border-amber-500 flex flex-col items-center justify-center shadow-[0_0_15px_rgba(245,158,11,0.2)] transition-all duration-500 opacity-0 pointer-events-none translate-y-10 hover:bg-amber-500 hover:border-slate-950 hover:shadow-[0_0_25px_rgba(245,158,11,0.5)] group focus:outline-none overflow-hidden" aria-label="Scroll to top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">
         
         <!-- Faint Film Icon Background -->
         <div class="absolute inset-0 flex items-center justify-center opacity-20 group-hover:opacity-30 text-amber-500 group-hover:text-slate-950 transition-all duration-500">
@@ -373,12 +373,12 @@
 
     <!-- Film Modal -->
     <div id="film-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 bg-slate-950/90 backdrop-blur-sm opacity-0 transition-opacity duration-300" onclick="if(event.target === this) closeModal()">
-        <div id="film-modal-content" class="bg-slate-900 border border-slate-800 max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl transform scale-95 transition-transform duration-300 relative flex flex-col md:flex-row">
+        <div id="film-modal-content" class="bg-slate-900 border border-slate-800 max-w-4xl w-full max-h-[90vh] overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300 relative flex flex-col md:flex-row">
             <!-- Close Button -->
             <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-amber-500 bg-slate-950/50 rounded-full p-2 focus:outline-none z-20 backdrop-blur-md">
                 <i data-lucide="x" class="w-6 h-6"></i>
             </button>
-            <div class="flex flex-col md:flex-row w-full" id="film-modal-body">
+            <div class="flex flex-col md:flex-row w-full max-h-[90vh] overflow-y-auto" id="film-modal-body">
                 <!-- Injected via JS -->
             </div>
         </div>
@@ -386,6 +386,26 @@
 
     <!-- JavaScript Data and Logic -->
     <script>
+        // Utility for Navigation scrolling
+        function scrollToSection(e, targetId) {
+            e.preventDefault();
+            const element = document.getElementById(targetId.toLowerCase());
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+            
+            // Close mobile menu if open
+            const mobileMenu = document.getElementById('mobile-menu');
+            const iconOpen = document.getElementById('menu-icon-open');
+            const iconClose = document.getElementById('menu-icon-close');
+            
+            if(!mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+                iconOpen.classList.remove('hidden');
+                iconClose.classList.add('hidden');
+            }
+        }
+
         // --- MOCK DATA ---
         const SITE_IMAGES = {
             logo: "Logo.jpeg", // Navbar and Footer logo
@@ -417,7 +437,7 @@
                 ],
                 description: "\"Ascending Beyond Shadows\" is a documentary about rock climbing. This documentary follows Tristin as he uses rock climbing to deal with hardships in his life in a positive way through this hobby.",
                 poster: "ABS P.PNG", still: "Awards banner.png",
-                videoLink: "https://youtu.be/hFXTzeEEL3I?si=S7LYja90Tc-5sJCP" // Input your YouTube/Vimeo link here
+                videoLink: "https://youtu.be/hFXTzeEEL3I?si=S7LYja90Tc-5sJCP"
             },
             {
                 id: 3, title: "Roma WWF Supertar to Teacher", director: "Patrick Civitelli & Ethan Chaplinski", year: "2024", category: "Short Documentary",
@@ -432,7 +452,7 @@
                 ],
                 description: "\"Roma WWF Star to Teacher: A Mini Documentary\" is the story of Paul Roma, a former WWF wrestler. The documentary shows how he turned his success in the ring into an opportunity to mentor students. He shares personal stories about wrestling and how that led him to teach students. Not only does he coach his student to be the best they can be he also teaches valuable life lessons.",
                 poster: "ROMA P.PNG", still: "Youtube Tumbnail Roma.png",
-                videoLink: "https://youtu.be/aeteyREiOv0?si=EFZpHxXjUAxAUR43" // Input your YouTube/Vimeo link here
+                videoLink: "https://youtu.be/aeteyREiOv0?si=EFZpHxXjUAxAUR43"
             }
         ];
 
@@ -442,19 +462,19 @@
                 id: 4, title: "Retrospection", director: "Patrick Civitelli", year: "2025", category: "Short Experimental Documentary", awards: [],
                 description: "Director Patrick Civitelli's first experimental documentary, Retrospection (2025), follows Civitelli as he travels through time, looking back at his childhood. Through different sources, Civitelli recounts memories that were unforgettable",
                 poster: "RP.jpeg", still: "Retrospection.png",
-                videoLink: "" // Input your YouTube/Vimeo link here
+                videoLink: ""
             },
             {
                 id: 5, title: "Paranormal Pursuits", director: "Patrick Civitelli", year: "2025", category: "Short Documentary", awards: [],
                 description: "\"Paranormal Pursuits\" is about a haunted library in Middlefield CT. My team and I spent the night to find out if it was truly haunted....",
                 poster: "Para.png", still: "Para.png",
-                videoLink: "" // Input your YouTube/Vimeo link here
+                videoLink: ""
             },
             {
                 id: 6, title: "Powdered Lies", director: "Patrick Civitelli", year: "2024", category: "Short Film", awards: [],
                 description: "This is the story of Mike, a man struggling with a dangerous addiction to cocaine. As his life spirals out of control, his relationship with his brother, Chris, begins to fracture. Despite Chris’s efforts to help, Mike lies to his face, denying the depth of his problem. But with each passing day, Mike edges closer to facing the devastating, lifelong consequences of his actions—consequences that may ultimately cost him the love and trust of those who care about him most.",
                 poster: "PL.jpg", still: "PL.jpg",
-                videoLink: "" // Input your YouTube/Vimeo link here
+                videoLink: ""
             }
         ];
 
@@ -465,7 +485,7 @@
             },
             {
                 id: 2, event: "Bridgeport Film Festival", year: "2025", details: "Festival appearance and screening.",
-                photos: ["r1.jpeg",  "r3.jpeg"]
+                photos: ["r1.jpeg", "", "r3.jpeg"]
             }
         ];
 
@@ -520,12 +540,10 @@
                         
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent opacity-40 group-hover:opacity-80 transition-opacity z-20"></div>
                     </div>
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <p class="text-amber-500 text-xs uppercase tracking-widest mb-1">${film.category} • ${film.year}</p>
-                            <h3 class="text-2xl text-white font-serif group-hover:text-amber-400 transition-colors">${film.title}</h3>
-                            <p class="text-slate-400 text-sm mt-1">Dir. ${film.director}</p>
-                        </div>
+                    <div class="flex flex-col items-start">
+                        <p class="text-amber-500 text-xs uppercase tracking-widest mb-1">${film.category} • ${film.year}</p>
+                        <h3 class="text-2xl text-white font-serif group-hover:text-amber-400 transition-colors mb-1">${film.title}</h3>
+                        <p class="text-slate-400 text-sm">Dir. ${film.director}</p>
                     </div>
                 </div>
             `).join('');
@@ -624,15 +642,15 @@
             const btnIcon = film.linkIcon || "play-circle";
 
             const watchLinkHtml = film.videoLink 
-                ? `<a href="${film.videoLink}" target="_blank" rel="noopener noreferrer" class="mt-8 inline-flex items-center justify-center gap-2 bg-amber-600 hover:bg-amber-500 text-white px-6 py-4 text-sm tracking-widest uppercase transition-colors duration-300 self-start shadow-lg">
+                ? `<a href="${film.videoLink}" target="_blank" rel="noopener noreferrer" class="mt-8 inline-flex items-center justify-center gap-2 bg-amber-600 hover:bg-amber-500 text-white px-6 py-4 text-sm tracking-widest uppercase transition-colors duration-300 self-start shadow-lg shrink-0">
                      <i data-lucide="${btnIcon}" class="w-5 h-5"></i> ${btnText}
                    </a>` 
-                : `<p class="mt-8 text-slate-500 text-sm italic">Film link coming soon.</p>`;
+                : `<p class="mt-8 text-slate-500 text-sm italic shrink-0">Film link coming soon.</p>`;
 
             let modalAwardsHtml = '';
             if(film.awards && film.awards.length > 0 && film.awards[0] !== "") {
-                modalAwardsHtml = `<div class="flex flex-wrap gap-2 mb-6">` + 
-                    film.awards.map(award => `<span class="inline-flex items-center gap-1.5 px-3 py-1 bg-amber-500/10 border border-amber-500/30 text-xs text-amber-500 rounded-full"><i data-lucide="award" class="w-3 h-3"></i>${award}</span>`).join('') + 
+                modalAwardsHtml = `<div class="flex flex-wrap gap-2 mb-6 shrink-0">` + 
+                    film.awards.map(award => `<span class="inline-flex items-center gap-1.5 px-3 py-1 bg-amber-500/10 border border-amber-500/30 text-xs text-amber-500 rounded-full"><i data-lucide="award" class="w-3 h-3 shrink-0"></i>${award}</span>`).join('') + 
                     `</div>`;
             }
 
@@ -644,14 +662,14 @@
                 <div class="w-full md:w-2/5 flex-shrink-0 relative">
                     ${posterHtml}
                 </div>
-                <div class="w-full md:w-3/5 p-8 md:p-12 flex flex-col justify-center">
-                    <p class="text-amber-500 text-sm uppercase tracking-widest mb-2">${film.category} • ${film.year}</p>
-                    <h3 class="text-3xl md:text-5xl text-white font-serif mb-4 leading-tight">${film.title}</h3>
-                    <p class="text-slate-400 text-lg mb-6 font-light border-b border-slate-800 pb-6">Directed by ${film.director}</p>
+                <div class="w-full md:w-3/5 p-8 md:p-12 flex flex-col">
+                    <p class="text-amber-500 text-sm uppercase tracking-widest mb-2 shrink-0">${film.category} • ${film.year}</p>
+                    <h3 class="text-3xl md:text-5xl text-white font-serif mb-4 leading-tight shrink-0">${film.title}</h3>
+                    <p class="text-slate-400 text-lg mb-6 font-light border-b border-slate-800 pb-6 shrink-0">Directed by ${film.director}</p>
                     
                     ${modalAwardsHtml}
                     
-                    <div class="text-slate-300 font-light leading-relaxed space-y-4 max-h-[30vh] overflow-y-auto pr-2">
+                    <div class="text-slate-300 font-light leading-relaxed space-y-4 shrink-0">
                         <p>${film.description}</p>
                     </div>
                     
@@ -659,6 +677,7 @@
                 </div>
             `;
             
+            // Render lucide icons newly injected into the modal
             lucide.createIcons();
 
             modal.classList.remove('hidden');
@@ -748,11 +767,6 @@
                 }
             });
 
-            // Scroll to Top click event
-            scrollToTopBtn.addEventListener('click', () => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-
             // Mobile Menu Toggle
             const mobileBtn = document.getElementById('mobile-menu-btn');
             const mobileMenu = document.getElementById('mobile-menu');
@@ -763,15 +777,6 @@
                 mobileMenu.classList.toggle('hidden');
                 iconOpen.classList.toggle('hidden');
                 iconClose.classList.toggle('hidden');
-            });
-
-            // Close mobile menu when a link is clicked
-            mobileNavLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
-                    iconOpen.classList.remove('hidden');
-                    iconClose.classList.add('hidden');
-                });
             });
         }
 
@@ -784,7 +789,7 @@
             renderPress();
             setupInteractivity();
             
-            // Render Lucide Icons (must be called after injecting HTML)
+            // Render Lucide Icons
             lucide.createIcons();
         });
     </script>
